@@ -1,8 +1,4 @@
-#Face Follower 
-This program utilizes ofxGif and ofxCV to place a storm cloud that continuosly rains over the users head.
+#Self Image Distortion 
+##Final Project for Advanced Coding 
 
-![Screenshot of program](Assets/raincloud.jpg)
-
-When the mouse is clicked a lightning strike triggers a skull mask to cover the user's face. 
-
-![Screenshot of program](Assets/skullface.jpg)
+This project is meant to help people see themselves as beautiful for who they are beneath the masks of cultural status. It's important to continue developing self respect by realizing the distortion of happiness in common objectives of the american dream(beauty,money,power,popularity, and an attractive mate). Distortion increases overtime till a breaking point occurs and again we see ourselves removed from our fantasy.  There is a small icon display on the right side to navigate through modes and by replacing the spacebar the mask layer will be reset. 
