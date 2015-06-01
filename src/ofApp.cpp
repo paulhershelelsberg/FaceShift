@@ -77,7 +77,7 @@ void ofApp::setup() {
     ofSetCircleResolution(20);
     //Set background threshold image that we are going to create the mask from
     background.setLearningTime(900);
-    background.setThresholdValue(40);
+    background.setThresholdValue(30);
     //setup our shader
     shader.load( "shaderVert.c", "shaderFrag.c" );
     //create fbo
