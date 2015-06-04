@@ -60,8 +60,10 @@ void ofApp::setup() {
     monBack.loadImage("yacht.jpg");
     makeBack.loadImage("vogue.jpg");
     presBack.loadImage("pres.jpg");
-    barbBack.loadImage("barb.jpg");
+    barbBack.loadImage("girlabs.jpg");
+    kenBack.loadImage("abs.jpg");
     papBack.loadImage("papa.jpg");
+    bath.loadImage("bath.png");
     col.set(255, 0, 0);
     ofEnableAlphaBlending();
    
@@ -73,6 +75,7 @@ void ofApp::setup() {
     influence=false;
     papa=false;
     lovers=false;
+    lovers2=false;
     //set circles for makeUP CV scene
     ofSetCircleResolution(20);
     //Set background threshold image that we are going to create the mask from
@@ -154,6 +157,7 @@ void ofApp::update() {
         money=false;
         influence=false;
         papa=false;
+        lovers2=false;
         
     }
   
@@ -171,7 +175,8 @@ void ofApp::draw() {
     if(makeUp)makeBack.draw(0, 0, ofGetWidth(), ofGetHeight());
     if(money)monBack.draw(0, 0, ofGetWidth(), ofGetHeight());
     if(papa)papBack.draw(0, 0, ofGetWidth(), ofGetHeight());
-    if(lovers)barbBack.draw(0, 0, ofGetWidth(), ofGetHeight());
+    if(lovers)barbBack.draw(0, 0);
+    if(lovers2)kenBack.draw(0, 0);
     if(influence)presBack.draw(0, 0, ofGetWidth(), ofGetHeight());
     //draw webcam on top of background
     destination.draw(0,0);
@@ -200,14 +205,23 @@ void ofApp::draw() {
 //
 //        }
 //    }
-    //draw ken and barbie images for the lovers scene
+    //draw barbie image for the lovers scene
     if(lovers)
     {
-        ken.draw(300, 200);
         barbie.draw(0, 100);
     }
+    //draw ken image for the lovers2 scene
+
+    if(lovers2)
+    {
+        ken.draw(300, 200);
+    }
     //draw the right side icon panel as the top layer
+   
        icons.draw(440, 40);
+    bath.draw(460,380);
+  
+
 
 
     //perform ofxCV calculations
@@ -224,7 +238,7 @@ void ofApp::draw() {
         if(influence)
         {
             cap.draw(0, 0);
-            flag.draw(50,20);
+            flag.draw(50,300);
         }
         ofScale(scaleAmount, scaleAmount);
         ofPopMatrix();
@@ -298,17 +312,18 @@ void ofApp::draw() {
 }
 void ofApp::mousePressed(int x, int y, int button){
     //all of these mouse pressed spaces are links to the side icons on the icon panel starting from the top down and we reset the count to allow for the shader to slowly increase when a new setting is selected
-    if((x>506)&&(x<576)&&(y>45)&&(y<115))
+    if((x>476)&&(x<546)&&(y>45)&&(y<115))
     {
         makeUp=true;
         money=false;
         influence=false;
         papa=false;
         lovers=false;
+        lovers2=false;
         bdisplay=false;
         count=0-ofGetElapsedTimef();
 
-
+//        ofRect(476,45,70,70);
     }
     if((x>469)&&(x<609)&&(y>126)&&(y<186))
     {
@@ -317,6 +332,7 @@ void ofApp::mousePressed(int x, int y, int button){
         influence=false;
         papa=false;
         lovers=false;
+        lovers2=false;
         bdisplay=false;
         count=0-ofGetElapsedTimef();
 
@@ -329,6 +345,7 @@ void ofApp::mousePressed(int x, int y, int button){
         makeUp=false;
         influence=false;
         lovers=false;
+        lovers2=false;
         bdisplay=false;
         count=0-ofGetElapsedTimef();
 
@@ -342,13 +359,14 @@ void ofApp::mousePressed(int x, int y, int button){
         makeUp=false;
         papa=false;
         lovers=false;
+        lovers2=false;
         bdisplay=false;
         count=0-ofGetElapsedTimef();
 
 
         
     }
-    if((x>478)&&(x<603)&&(y>383)&&(y<468))
+    if((x>478)&&(x<508)&&(y>383)&&(y<468))
     {
         lovers=true;
         money=false;
@@ -356,11 +374,26 @@ void ofApp::mousePressed(int x, int y, int button){
         influence=false;
         papa=false;
         bdisplay=false;
+        lovers2=false;
         count=0-ofGetElapsedTimef();
+//        ofRect(478,383,30,85);
 
     }
+    if((x>508)&&(x<543)&&(y>383)&&(y<468))
+    {
+        lovers2=true;
+        money=false;
+        makeUp=false;
+        influence=false;
+        lovers=false;
+        papa=false;
+        bdisplay=false;
+        count=0-ofGetElapsedTimef();
+        //        ofRect(508,383,35,85);
+        
+    }
 
-    if((!papa)&&(!influence)&&(!lovers)&&(!money)&&(!makeUp))
+    if((!papa)&&(!influence)&&(!lovers)&&(!money)&&(!makeUp)&&(!lovers2))
     {
         bdisplay=true;
     }

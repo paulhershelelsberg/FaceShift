@@ -19,9 +19,9 @@ public:
     void keyPressed(int key);
     ofVideoGrabber cam;
     ofxCv::ObjectFinder finder;
-    ofImage skull,mon,cap,icons,sunglasses,dollarSign,flag,cam2,mic,mic2,camera,barbie,ken;
-    ofImage monBack, makeBack, presBack,barbBack,papBack;
-    bool bdisplay,iconDisplay,money,makeUp,influence,papa,lovers;
+    ofImage skull,mon,cap,icons,sunglasses,dollarSign,flag,cam2,mic,mic2,camera,barbie,ken,bath ;
+    ofImage monBack, makeBack, presBack,barbBack,kenBack,papBack;
+    bool bdisplay,iconDisplay,money,makeUp,influence,papa,lovers,lovers2;
     int w,h,mouseX,mouseY,wVal,hVal,hVal1,hVal2,fX,fY;
     ofColor col;
     ofLight flash;
